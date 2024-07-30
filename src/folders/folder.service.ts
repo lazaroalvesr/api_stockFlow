@@ -14,7 +14,7 @@ export class FolderService {
                     nome
                 }
             })
-            if (!nomeExistingue) {
+            if (nomeExistingue) {
                 throw new BadRequestException("Erro ao criar pasta: Nome já em uso!");
             }
 
