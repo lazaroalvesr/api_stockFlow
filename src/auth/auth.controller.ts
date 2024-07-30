@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDTO } from '../dto/Register';
 import { LoginDTO } from '../dto/Login';
@@ -25,5 +25,10 @@ export class AuthController {
     @Get(":id")
     getUserById(@Param("id") id: string) {
         return this.authService.getById(id)
+    }
+
+    @Delete(":id")
+    delete(@Param("id") id: string) {
+        return this.authService.delete(id)
     }
 }
