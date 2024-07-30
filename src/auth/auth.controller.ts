@@ -33,8 +33,8 @@ export class AuthController {
         return this.authService.delete(id)
     }
 
-    @Public()
     @Get('publica')
+    @Public()
     async rotaPublica() {
         return { mensagem: 'Rota pública acessível sem autenticação' };
     }
