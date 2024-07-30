@@ -1,12 +1,14 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { FolderDTO } from '../dto/Folder';
 import { FolderService } from './folder.service';
 import { UpdatePastaDTO } from '../dto/UpdatePasta';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('folder')
 export class FolderController {
     constructor(private readonly folderService: FolderService) { }
 
+    @UseGuards(JwtAuthGuard)
     @Post("create")
     create(@Body() folder: FolderDTO) {
         return this.folderService.create(folder)
