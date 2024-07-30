@@ -14,7 +14,7 @@ import { Reflector } from '@nestjs/core';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         secret: configService.get<string>('SECRET'),
-        signOptions: { expiresIn: '60s' },
+        signOptions: { expiresIn: '2d' },
       }),
       inject: [ConfigService],
     }),
