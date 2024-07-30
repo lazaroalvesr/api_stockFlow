@@ -9,11 +9,13 @@ export class AuthController {
     constructor(private readonly authService: AuthService) { }
 
     @Post('create')
+    @Public()
     criar(@Body() user: RegisterDTO) {
         return this.authService.create(user)
     }
 
     @Post('login')
+    @Public()
     login(@Body() user: LoginDTO) {
         return this.authService.login(user)
     }
