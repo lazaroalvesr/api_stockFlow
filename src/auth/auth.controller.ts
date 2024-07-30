@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDTO } from '../dto/Register';
 import { LoginDTO } from '../dto/Login';
+import { Public } from '../lib/public.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -30,5 +31,11 @@ export class AuthController {
     @Delete(":id")
     delete(@Param("id") id: string) {
         return this.authService.delete(id)
+    }
+
+    @Public()
+    @Get('publica')
+    async rotaPublica() {
+        return { mensagem: 'Rota pública acessível sem autenticação' };
     }
 }
