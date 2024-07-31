@@ -7,21 +7,22 @@ import { Tarefas } from '../lib/interface';
 export class TaskService {
     constructor(private readonly prismaService: PrismaService) { }
 
-    async create({ nome, text, pastaId }: Tarefas) {
-        if (!pastaId) {
-            throw new BadRequestException("Erro ao buscar Pasta: Id não existe!");
+    async create(task: Tarefas) {
+        if (task.perecivel && !task.dataValidade) {
+            throw new BadRequestException('Data de validade é obrigatória para produtos perecíveis');
         }
 
-        const create = await this.prismaService.tarefa.create({
+        return await this.prismaService.tarefa.create({
             data: {
-                nome,
-                text,
-                pastaId
-            }
-        })
-
-        return create
+                nome: task.nome,
+                perecivel: task.perecivel,
+                dataValidade: task.dataValidade,
+                dataFabricacao: task.dataFabricacao,
+                pastaId: task.pastaId,
+            },
+        });
     }
+
 
     async getById(id: string) {
         if (!id) {
@@ -37,18 +38,22 @@ export class TaskService {
         return getById
     }
 
-    async updated(id: string, updateTask: UpdateTaskDTO) {
-        if (!id) {
-            throw new BadRequestException("Erro ao buscar id: Id não existe!");
+    async update(id: string, task: UpdateTaskDTO) {
+        if (task.perecivel && !task.dataValidade) {
+            throw new BadRequestException('Data de validade é obrigatória para produtos perecíveis');
         }
 
-        const getById = await this.prismaService.tarefa.update({
+        return await this.prismaService.tarefa.update({
             where: { id },
-            data: updateTask
-        })
-
-        return getById
+            data: {
+                nome: task.nome,
+                perecivel: task.perecivel,
+                dataValidade: task.dataValidade,
+                dataFabricacao: task.dataFabricacao,
+            },
+        });
     }
+
 
     async delete(id: string) {
         if (!id) {

@@ -38,13 +38,15 @@ model Pasta {
 }
 
 model Tarefa {
-  id         String   @id @default(uuid())
-  nome       String
-  text      String
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt()
-  pasta      Pasta    @relation(fields: [pastaId], references: [id], onDelete: Cascade)
-  pastaId    String
+  id             String    @id @default(uuid())
+  nome           String
+  perecivel      Boolean
+  dataValidade   DateTime?
+  dataFabricacao DateTime?
+  created_at     DateTime  @default(now())
+  updated_at     DateTime  @updatedAt()
+  pasta          Pasta     @relation(fields: [pastaId], references: [id], onDelete: Cascade)
+  pastaId        String
 
   @@map("tarefas")
 }

@@ -1,16 +1,20 @@
-import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import { IsBoolean, IsDate, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
 export class TasksDTO {
-
-    @IsNotEmpty()
-    @IsEmail()
-    nome: string
+    @IsString()
+    nome: string;
 
     @IsNotEmpty()
     @IsString()
     text: string
 
-    @IsNotEmpty()
-    @IsString()
-    pastaId: string
+    @IsBoolean()
+    perecivel: boolean;
+
+    @IsOptional()
+    @IsDate()
+    dataValidade?: Date;
+
+    @IsDate()
+    dataFabricacao?: Date;
 }

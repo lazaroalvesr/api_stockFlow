@@ -17,5 +17,8 @@ export interface Folder {
 export interface Tarefas {
     nome: string
     text: string
+    perecivel: boolean
+    dataValidade: Date
+    dataFabricacao: Date
     pastaId: string
 }

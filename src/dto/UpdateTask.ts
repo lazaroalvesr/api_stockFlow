@@ -1,4 +1,4 @@
-import {  IsNotEmpty, IsString } from "class-validator";
+import {  IsBoolean, IsDate, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
 export class UpdateTaskDTO {
 
@@ -9,4 +9,14 @@ export class UpdateTaskDTO {
     @IsNotEmpty()
     @IsString()
     text: string
+
+    @IsBoolean()
+    perecivel: boolean;
+  
+    @IsOptional()
+    @IsDate()
+    dataValidade?: Date;
+  
+    @IsDate()
+    dataFabricacao?: Date;
 }
