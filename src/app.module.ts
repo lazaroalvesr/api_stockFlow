@@ -5,14 +5,14 @@ import { TaskModule } from './tasks/task.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { ConfigModule } from '@nestjs/config';
-import { join } from 'path';
-import * as Joi from 'joi';
+import Joi from 'joi';
 
 @Module({
   imports: [AuthModule, FolderModule, TaskModule, ConfigModule.forRoot({
     validationSchema: Joi.object({
-      FRONTEND_URL: Joi.string(),
-    })
+      FRONTEND_URL: Joi.string().uri().required(),
+    }),
+    isGlobal: true
   })],
   controllers: [],
   providers: [{

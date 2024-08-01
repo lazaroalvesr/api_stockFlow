@@ -7,13 +7,14 @@ import { ConfigService } from '@nestjs/config';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const configService = app.get(ConfigService)
-  const frontendUrl = configService.get('FRONTEND_URL')
+  const configService = app.get(ConfigService);
+  const frontendUrl = configService.get<string>('FRONTEND_URL');
+
   if (frontendUrl) {
     app.enableCors({
-      origin: configService.get('FRONTEND_URL'),
-      credentials: true
-    })
+      origin: frontendUrl, // Usa a variável de ambiente para definir a origem
+      credentials: true,
+    });
   }
 
   const reflector = app.get(Reflector);
