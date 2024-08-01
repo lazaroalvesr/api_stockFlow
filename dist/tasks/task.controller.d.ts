@@ -7,6 +7,7 @@ export declare class TaskController {
     create(task: TasksDTO): Promise<{
         id: string;
         nome: string;
+        text: string;
         perecivel: boolean;
         dataValidade: Date | null;
         dataFabricacao: Date | null;
@@ -17,6 +18,7 @@ export declare class TaskController {
     getById(id: string): Promise<{
         id: string;
         nome: string;
+        text: string;
         perecivel: boolean;
         dataValidade: Date | null;
         dataFabricacao: Date | null;
@@ -27,6 +29,7 @@ export declare class TaskController {
     update(id: string, task: UpdateTaskDTO): Promise<{
         id: string;
         nome: string;
+        text: string;
         perecivel: boolean;
         dataValidade: Date | null;
         dataFabricacao: Date | null;
@@ -37,6 +40,7 @@ export declare class TaskController {
     delete(id: string): Promise<{
         id: string;
         nome: string;
+        text: string;
         perecivel: boolean;
         dataValidade: Date | null;
         dataFabricacao: Date | null;

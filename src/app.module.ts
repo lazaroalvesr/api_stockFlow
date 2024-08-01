@@ -8,8 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import Joi from 'joi';
 
 @Module({
-  imports: [AuthModule, FolderModule, TaskModule, ConfigModule.forRoot(),
-  ],
+  imports: [AuthModule, FolderModule, TaskModule, ConfigModule.forRoot()],
   controllers: [],
   providers: [{
     provide: APP_GUARD,

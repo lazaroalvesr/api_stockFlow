@@ -16,6 +16,6 @@ export interface Tarefas {
     text: string;
     perecivel: boolean;
     dataValidade: Date;
-    dataFabricacao: Date;
+    dataFabricacao?: Date;
     pastaId: string;
 }

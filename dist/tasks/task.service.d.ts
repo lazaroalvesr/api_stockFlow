@@ -7,6 +7,7 @@ export declare class TaskService {
     create(task: Tarefas): Promise<{
         id: string;
         nome: string;
+        text: string;
         perecivel: boolean;
         dataValidade: Date | null;
         dataFabricacao: Date | null;
@@ -17,6 +18,7 @@ export declare class TaskService {
     getById(id: string): Promise<{
         id: string;
         nome: string;
+        text: string;
         perecivel: boolean;
         dataValidade: Date | null;
         dataFabricacao: Date | null;
@@ -27,6 +29,7 @@ export declare class TaskService {
     update(id: string, task: UpdateTaskDTO): Promise<{
         id: string;
         nome: string;
+        text: string;
         perecivel: boolean;
         dataValidade: Date | null;
         dataFabricacao: Date | null;
@@ -37,6 +40,7 @@ export declare class TaskService {
     delete(id: string): Promise<{
         id: string;
         nome: string;
+        text: string;
         perecivel: boolean;
         dataValidade: Date | null;
         dataFabricacao: Date | null;

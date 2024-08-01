@@ -22,6 +22,7 @@ export declare class FolderController {
         Tarefa: {
             id: string;
             nome: string;
+            text: string;
             perecivel: boolean;
             dataValidade: Date | null;
             dataFabricacao: Date | null;

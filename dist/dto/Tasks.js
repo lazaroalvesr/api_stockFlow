@@ -32,11 +32,11 @@ __decorate([
     __metadata("design:type", String)
 ], TasksDTO.prototype, "pastaId", void 0);
 __decorate([
-    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsDate)(),
     __metadata("design:type", Date)
 ], TasksDTO.prototype, "dataValidade", void 0);
 __decorate([
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsDate)(),
     __metadata("design:type", Date)
 ], TasksDTO.prototype, "dataFabricacao", void 0);

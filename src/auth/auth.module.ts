@@ -20,7 +20,7 @@ import { Reflector } from '@nestjs/core';
     }),
     ConfigModule.forRoot()
   ],
-  providers: [AuthService],
+  providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
 })
 export class AuthModule {}

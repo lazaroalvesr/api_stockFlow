@@ -19,8 +19,7 @@ let AppModule = class AppModule {
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, folder_module_1.FolderModule, task_module_1.TaskModule, config_1.ConfigModule.forRoot(),
-        ],
+        imports: [auth_module_1.AuthModule, folder_module_1.FolderModule, task_module_1.TaskModule, config_1.ConfigModule.forRoot()],
         controllers: [],
         providers: [{
                 provide: core_1.APP_GUARD,

@@ -3,6 +3,6 @@ export declare class TasksDTO {
     text: string;
     perecivel: boolean;
     pastaId: string;
-    dataValidade?: Date;
+    dataValidade: Date;
     dataFabricacao?: Date;
 }

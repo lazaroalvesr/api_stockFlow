@@ -1,23 +1,28 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDTO } from '../dto/Register';
 import { LoginDTO } from '../dto/Login';
+import { JwtAuthGuard } from './jwt-auth.guard';
+import { Public } from '../lib/public.decorator';
 
 @Controller('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) { }
 
     @Post('create')
+    @Public()
     criar(@Body() user: RegisterDTO) {
         return this.authService.create(user)
     }
 
     @Post('login')
+    @Public()
     login(@Body() user: LoginDTO) {
         return this.authService.login(user)
     }
 
     @Get("userAll")
+    @UseGuards(JwtAuthGuard)
     getAllUser() {
         return this.authService.getAll()
     }
