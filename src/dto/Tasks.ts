@@ -11,10 +11,13 @@ export class TasksDTO {
     @IsBoolean()
     perecivel: boolean;
 
-    @IsOptional()
-    @IsDate()
-    dataValidade?: Date;
+    @IsString()
+    pastaId: string
 
+    @IsDate()
+    dataValidade: Date;
+    
+    @IsOptional()
     @IsDate()
     dataFabricacao?: Date;
 }

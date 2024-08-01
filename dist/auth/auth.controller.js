@@ -17,7 +17,6 @@ const common_1 = require("@nestjs/common");
 const auth_service_1 = require("./auth.service");
 const Register_1 = require("../dto/Register");
 const Login_1 = require("../dto/Login");
-const public_decorator_1 = require("../lib/public.decorator");
 let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
@@ -36,9 +35,6 @@ let AuthController = class AuthController {
     }
     delete(id) {
         return this.authService.delete(id);
-    }
-    async rotaPublica() {
-        return { mensagem: 'Rota pública acessível sem autenticação' };
     }
 };
 exports.AuthController = AuthController;
@@ -76,13 +72,6 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "delete", null);
-__decorate([
-    (0, public_decorator_1.Public)(),
-    (0, common_1.Get)('publica'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], AuthController.prototype, "rotaPublica", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])

@@ -16,18 +16,20 @@ let TaskService = class TaskService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    async create({ nome, text, pastaId }) {
-        if (!pastaId) {
-            throw new common_1.BadRequestException("Erro ao buscar Pasta: Id não existe!");
+    async create(task) {
+        if (task.perecivel && !task.dataValidade) {
+            throw new common_1.BadRequestException('Data de validade é obrigatória para produtos perecíveis');
         }
-        const create = await this.prismaService.tarefa.create({
+        return await this.prismaService.tarefa.create({
             data: {
-                nome,
-                text,
-                pastaId
-            }
+                nome: task.nome,
+                text: task.text,
+                perecivel: task.perecivel,
+                dataValidade: task.dataValidade,
+                dataFabricacao: task.dataFabricacao,
+                pastaId: task.pastaId,
+            },
         });
-        return create;
     }
     async getById(id) {
         if (!id) {
@@ -40,15 +42,19 @@ let TaskService = class TaskService {
         });
         return getById;
     }
-    async updated(id, updateTask) {
-        if (!id) {
-            throw new common_1.BadRequestException("Erro ao buscar id: Id não existe!");
+    async update(id, task) {
+        if (task.perecivel && !task.dataValidade) {
+            throw new common_1.BadRequestException('Data de validade é obrigatória para produtos perecíveis');
         }
-        const getById = await this.prismaService.tarefa.update({
+        return await this.prismaService.tarefa.update({
             where: { id },
-            data: updateTask
+            data: {
+                nome: task.nome,
+                perecivel: task.perecivel,
+                dataValidade: task.dataValidade,
+                dataFabricacao: task.dataFabricacao,
+            },
         });
-        return getById;
     }
     async delete(id) {
         if (!id) {

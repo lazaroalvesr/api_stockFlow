@@ -15,8 +15,7 @@ class TasksDTO {
 }
 exports.TasksDTO = TasksDTO;
 __decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], TasksDTO.prototype, "nome", void 0);
 __decorate([
@@ -25,8 +24,20 @@ __decorate([
     __metadata("design:type", String)
 ], TasksDTO.prototype, "text", void 0);
 __decorate([
-    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], TasksDTO.prototype, "perecivel", void 0);
+__decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], TasksDTO.prototype, "pastaId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsDate)(),
+    __metadata("design:type", Date)
+], TasksDTO.prototype, "dataValidade", void 0);
+__decorate([
+    (0, class_validator_1.IsDate)(),
+    __metadata("design:type", Date)
+], TasksDTO.prototype, "dataFabricacao", void 0);
 //# sourceMappingURL=Tasks.js.map

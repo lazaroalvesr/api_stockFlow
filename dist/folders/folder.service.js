@@ -23,7 +23,7 @@ let FolderService = class FolderService {
                     nome
                 }
             });
-            if (!nomeExistingue) {
+            if (nomeExistingue) {
                 throw new common_1.BadRequestException("Erro ao criar pasta: Nome já em uso!");
             }
             const createFolder = await this.prismaService.pasta.create({

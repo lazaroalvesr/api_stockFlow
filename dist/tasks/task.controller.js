@@ -29,7 +29,7 @@ let TaskController = class TaskController {
         return this.taskService.getById(id);
     }
     update(id, task) {
-        return this.taskService.updated(id, task);
+        return this.taskService.update(id, task);
     }
     delete(id) {
         return this.taskService.delete(id);

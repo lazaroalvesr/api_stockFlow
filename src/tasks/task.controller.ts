@@ -21,7 +21,7 @@ export class TaskController {
 
     @Put(":id")
     update(@Param("id") id: string, @Body() task: UpdateTaskDTO) {
-        return this.taskService.updated(id, task)
+        return this.taskService.update(id, task)
     }
 
     @Delete(":id")

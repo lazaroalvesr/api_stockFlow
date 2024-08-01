@@ -24,4 +24,17 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateTaskDTO.prototype, "text", void 0);
+__decorate([
+    (0, class_validator_1.IsBoolean)(),
+    __metadata("design:type", Boolean)
+], UpdateTaskDTO.prototype, "perecivel", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsDate)(),
+    __metadata("design:type", Date)
+], UpdateTaskDTO.prototype, "dataValidade", void 0);
+__decorate([
+    (0, class_validator_1.IsDate)(),
+    __metadata("design:type", Date)
+], UpdateTaskDTO.prototype, "dataFabricacao", void 0);
 //# sourceMappingURL=UpdateTask.js.map

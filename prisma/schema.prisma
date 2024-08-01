@@ -40,6 +40,7 @@ model Pasta {
 model Tarefa {
   id             String    @id @default(uuid())
   nome           String
+  text           String
   perecivel      Boolean
   dataValidade   DateTime?
   dataFabricacao DateTime?

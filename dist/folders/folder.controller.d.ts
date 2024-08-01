@@ -22,7 +22,9 @@ export declare class FolderController {
         Tarefa: {
             id: string;
             nome: string;
-            text: string;
+            perecivel: boolean;
+            dataValidade: Date | null;
+            dataFabricacao: Date | null;
             created_at: Date;
             updated_at: Date;
             pastaId: string;

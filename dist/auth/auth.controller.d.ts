@@ -48,7 +48,4 @@ export declare class AuthController {
         created_at: Date;
         updated_at: Date;
     }>;
-    rotaPublica(): Promise<{
-        mensagem: string;
-    }>;
 }

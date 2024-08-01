@@ -15,6 +15,7 @@ export class TaskService {
         return await this.prismaService.tarefa.create({
             data: {
                 nome: task.nome,
+                text: task.text,
                 perecivel: task.perecivel,
                 dataValidade: task.dataValidade,
                 dataFabricacao: task.dataFabricacao,

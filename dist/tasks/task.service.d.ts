@@ -4,10 +4,12 @@ import { Tarefas } from '../lib/interface';
 export declare class TaskService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create({ nome, text, pastaId }: Tarefas): Promise<{
+    create(task: Tarefas): Promise<{
         id: string;
         nome: string;
-        text: string;
+        perecivel: boolean;
+        dataValidade: Date | null;
+        dataFabricacao: Date | null;
         created_at: Date;
         updated_at: Date;
         pastaId: string;
@@ -15,15 +17,19 @@ export declare class TaskService {
     getById(id: string): Promise<{
         id: string;
         nome: string;
-        text: string;
+        perecivel: boolean;
+        dataValidade: Date | null;
+        dataFabricacao: Date | null;
         created_at: Date;
         updated_at: Date;
         pastaId: string;
     }>;
-    updated(id: string, updateTask: UpdateTaskDTO): Promise<{
+    update(id: string, task: UpdateTaskDTO): Promise<{
         id: string;
         nome: string;
-        text: string;
+        perecivel: boolean;
+        dataValidade: Date | null;
+        dataFabricacao: Date | null;
         created_at: Date;
         updated_at: Date;
         pastaId: string;
@@ -31,7 +37,9 @@ export declare class TaskService {
     delete(id: string): Promise<{
         id: string;
         nome: string;
-        text: string;
+        perecivel: boolean;
+        dataValidade: Date | null;
+        dataFabricacao: Date | null;
         created_at: Date;
         updated_at: Date;
         pastaId: string;
