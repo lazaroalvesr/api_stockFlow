@@ -4,10 +4,7 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { Reflector } from '@nestjs/core';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule,
-    {
-      bodyParser: true,
-    });
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   app.enableCors({
     "origin": "*",
