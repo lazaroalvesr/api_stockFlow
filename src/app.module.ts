@@ -8,12 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import Joi from 'joi';
 
 @Module({
-  imports: [AuthModule, FolderModule, TaskModule, ConfigModule.forRoot({
-    validationSchema: Joi.object({
-      FRONTEND_URL: Joi.string().uri().required(),
-    }),
-    isGlobal: true,
-  }),
+  imports: [AuthModule, FolderModule, TaskModule, ConfigModule.forRoot(),
   ],
   controllers: [],
   providers: [{
