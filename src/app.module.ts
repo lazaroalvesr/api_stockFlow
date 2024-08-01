@@ -9,6 +9,9 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [AuthModule, FolderModule, TaskModule, ConfigModule.forRoot()],
   controllers: [],
-  providers: [],
+  providers: [{
+    provide: APP_GUARD,
+    useClass: JwtAuthGuard,
+  }],
 })
 export class AppModule { }
