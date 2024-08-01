@@ -9,7 +9,7 @@ async function bootstrap() {
   const corOptions = {
     origin: 'http://localhost:3000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credecredentials: true,
+    credentials : true,
     allowedHeaders: 'Content-Type, Accept, Authorization',
   }
 
