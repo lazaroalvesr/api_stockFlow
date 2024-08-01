@@ -6,15 +6,12 @@ import { Reflector } from '@nestjs/core';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const corOptions = {
+  app.enableCors({
+    allowedHeaders: ['content-type'],
     origin: 'http://localhost:3000',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials : true,
-    allowedHeaders: 'Content-Type, Accept, Authorization',
-  }
-
-  app.enableCors(corOptions)
-
+    credentials: true,
+  });
+  
   const reflector = app.get(Reflector);
 
   app.useGlobalGuards(new JwtAuthGuard(reflector));
