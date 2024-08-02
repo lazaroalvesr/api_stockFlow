@@ -3,6 +3,7 @@ import { FolderDTO } from '../dto/Folder';
 import { FolderService } from './folder.service';
 import { UpdatePastaDTO } from '../dto/UpdatePasta';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { Public } from '../lib/public.decorator';
 
 @Controller('folder')
 export class FolderController {
@@ -14,14 +15,14 @@ export class FolderController {
         return this.folderService.create(folder)
     }
 
-    @Get("getAll")
-    getAll() {
-        return this.folderService.buscarTodas()
+    @Get('all/:id')
+    getAll(@Param('id') id: string) {
+      return this.folderService.buscarTodas(id);
     }
-
-    @Get(":id")
-    getById(@Param("id") id: string) {
-        return this.folderService.buscarPorID(id)
+  
+    @Get('details/:id')
+    getById(@Param('id') id: string) {
+      return this.folderService.buscarPorID(id);
     }
 
     @Put(":id")

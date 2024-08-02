@@ -35,8 +35,22 @@ export class FolderService {
         }
     }
 
-    async buscarTodas() {
-        return await this.prismaService.pasta.findMany()
+    async buscarTodas(userId: string) {
+        const pastaMany = await this.prismaService.pasta.findMany({
+            where: {
+                usuarioId: userId
+            },
+            include: {
+                _count: {
+                    select: { Tarefa: true }
+                }
+            }
+        })
+
+        return pastaMany.map(pasta => ({
+            ...pasta,
+            itemCount: pasta._count.Tarefa,
+        }));
     }
 
     async buscarPorID(id: string) {

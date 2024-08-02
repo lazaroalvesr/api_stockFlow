@@ -11,7 +11,11 @@ export declare class FolderService {
         updated_at: Date;
         usuarioId: string;
     }>;
-    buscarTodas(): Promise<{
+    buscarTodas(userId: string): Promise<{
+        itemCount: number;
+        _count: {
+            Tarefa: number;
+        };
         id: string;
         nome: string;
         created_at: Date;
