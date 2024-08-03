@@ -28,8 +28,19 @@ let TaskService = class TaskService {
                 dataValidade: task.dataValidade ? new Date(task.dataValidade) : null,
                 dataFabricacao: task.dataFabricacao ? new Date(task.dataFabricacao) : null,
                 pastaId: task.pastaId,
+                usuarioId: task.usuarioId
             },
         });
+    }
+    async getAll(userId) {
+        if (!userId) {
+            throw new common_1.BadRequestException("Erro ao buscar id: Id não existe!");
+        }
+        const getAllId = await this.prismaService.tarefa.findMany({
+            where: { usuarioId: userId },
+            include: { pasta: true }
+        });
+        return getAllId;
     }
     async getById(id) {
         if (!id) {

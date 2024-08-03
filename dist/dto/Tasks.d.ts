@@ -5,4 +5,5 @@ export declare class TasksDTO {
     pastaId: string;
     dataValidade: Date;
     dataFabricacao?: Date;
+    usuarioId: string;
 }

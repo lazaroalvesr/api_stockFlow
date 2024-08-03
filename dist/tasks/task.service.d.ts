@@ -14,7 +14,28 @@ export declare class TaskService {
         created_at: Date;
         updated_at: Date;
         pastaId: string;
+        usuarioId: string;
     }>;
+    getAll(userId: string): Promise<({
+        pasta: {
+            id: string;
+            nome: string;
+            created_at: Date;
+            updated_at: Date;
+            usuarioId: string;
+        };
+    } & {
+        id: string;
+        nome: string;
+        text: string;
+        perecivel: boolean;
+        dataValidade: Date | null;
+        dataFabricacao: Date | null;
+        created_at: Date;
+        updated_at: Date;
+        pastaId: string;
+        usuarioId: string;
+    })[]>;
     getById(id: string): Promise<{
         id: string;
         nome: string;
@@ -25,6 +46,7 @@ export declare class TaskService {
         created_at: Date;
         updated_at: Date;
         pastaId: string;
+        usuarioId: string;
     }>;
     update(id: string, task: UpdateTaskDTO): Promise<{
         id: string;
@@ -36,6 +58,7 @@ export declare class TaskService {
         created_at: Date;
         updated_at: Date;
         pastaId: string;
+        usuarioId: string;
     }>;
     delete(id: string): Promise<{
         id: string;
@@ -47,5 +70,6 @@ export declare class TaskService {
         created_at: Date;
         updated_at: Date;
         pastaId: string;
+        usuarioId: string;
     }>;
 }

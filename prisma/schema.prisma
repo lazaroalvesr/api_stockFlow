@@ -48,6 +48,7 @@ model Tarefa {
   updated_at     DateTime  @updatedAt()
   pasta          Pasta     @relation(fields: [pastaId], references: [id], onDelete: Cascade)
   pastaId        String
+  usuarioId      String
 
   @@map("tarefas")
 }

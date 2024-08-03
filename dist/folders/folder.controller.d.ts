@@ -33,6 +33,7 @@ export declare class FolderController {
             created_at: Date;
             updated_at: Date;
             pastaId: string;
+            usuarioId: string;
         }[];
     } & {
         id: string;

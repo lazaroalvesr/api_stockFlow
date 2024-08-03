@@ -20,4 +20,8 @@ export class TasksDTO {
     @IsOptional()
     @IsDate()
     dataFabricacao?: Date;
+
+    @IsNotEmpty()
+    @IsString()
+    usuarioId: string
 }

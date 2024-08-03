@@ -18,4 +18,5 @@ export interface Tarefas {
     dataValidade: Date;
     dataFabricacao?: Date;
     pastaId: string;
+    usuarioId: string;
 }

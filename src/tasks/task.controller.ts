@@ -19,6 +19,11 @@ export class TaskController {
         return this.taskService.getById(id)
     }
 
+    @Get('user/:userId')
+    async getTasksByUser(@Param('userId') userId: string) {
+        return this.taskService.getAll(userId);
+    }
+
     @Put(":id")
     update(@Param("id") id: string, @Body() task: UpdateTaskDTO) {
         return this.taskService.update(id, task)

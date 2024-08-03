@@ -40,4 +40,9 @@ __decorate([
     (0, class_validator_1.IsDate)(),
     __metadata("design:type", Date)
 ], TasksDTO.prototype, "dataFabricacao", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], TasksDTO.prototype, "usuarioId", void 0);
 //# sourceMappingURL=Tasks.js.map

@@ -28,6 +28,9 @@ let TaskController = class TaskController {
     getById(id) {
         return this.taskService.getById(id);
     }
+    async getTasksByUser(userId) {
+        return this.taskService.getAll(userId);
+    }
     update(id, task) {
         return this.taskService.update(id, task);
     }
@@ -51,6 +54,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], TaskController.prototype, "getById", null);
+__decorate([
+    (0, common_1.Get)('user/:userId'),
+    __param(0, (0, common_1.Param)('userId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], TaskController.prototype, "getTasksByUser", null);
 __decorate([
     (0, common_1.Put)(":id"),
     __param(0, (0, common_1.Param)("id")),
