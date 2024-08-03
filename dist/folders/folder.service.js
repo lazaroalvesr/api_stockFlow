@@ -42,7 +42,15 @@ let FolderService = class FolderService {
         }
     }
     async buscarTodas() {
-        return await this.prismaService.pasta.findMany();
+        return await this.prismaService.pasta.findMany({
+            include: {
+                _count: {
+                    select: {
+                        Tarefa: true,
+                    },
+                },
+            },
+        });
     }
     async buscarPorID(id) {
         const getById = await this.prismaService.pasta.findFirst({
