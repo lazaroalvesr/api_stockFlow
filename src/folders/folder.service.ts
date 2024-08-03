@@ -9,15 +9,6 @@ export class FolderService {
 
     async create({ nome, usuarioId }: Folder) {
         try {
-            const nomeExistingue = await this.prismaService.pasta.findUnique({
-                where: {
-                    nome
-                }
-            })
-            if (nomeExistingue) {
-                throw new BadRequestException("Erro ao criar pasta: Nome já em uso!");
-            }
-
             const createFolder = await this.prismaService.pasta.create({
                 data: {
                     nome,
@@ -34,9 +25,11 @@ export class FolderService {
             throw new InternalServerErrorException('Erro ao criar pasta, por favor, tente novamente mais tarde.');
         }
     }
-
-    async buscarTodas() {
-        return await this.prismaService.pasta.findMany({
+    async buscarTodas(userId: string) {
+        const getAll = await this.prismaService.pasta.findMany({
+            where: {
+                usuarioId: userId, // Certifique-se de que 'usuarioId' é o campo correto no seu modelo
+            },
             include: {
                 _count: {
                     select: {
@@ -45,7 +38,10 @@ export class FolderService {
                 },
             },
         });
+
+        return getAll;
     }
+
 
     async buscarPorID(id: string) {
         const getById = await this.prismaService.pasta.findFirst({

@@ -41,8 +41,11 @@ let FolderService = class FolderService {
             throw new common_1.InternalServerErrorException('Erro ao criar pasta, por favor, tente novamente mais tarde.');
         }
     }
-    async buscarTodas() {
-        return await this.prismaService.pasta.findMany({
+    async buscarTodas(userId) {
+        const getAll = await this.prismaService.pasta.findMany({
+            where: {
+                usuarioId: userId,
+            },
             include: {
                 _count: {
                     select: {
@@ -51,6 +54,7 @@ let FolderService = class FolderService {
                 },
             },
         });
+        return getAll;
     }
     async buscarPorID(id) {
         const getById = await this.prismaService.pasta.findFirst({

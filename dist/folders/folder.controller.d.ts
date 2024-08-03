@@ -11,7 +11,7 @@ export declare class FolderController {
         updated_at: Date;
         usuarioId: string;
     }>;
-    getAll(): Promise<({
+    getAll(userId: string): Promise<({
         _count: {
             Tarefa: number;
         };

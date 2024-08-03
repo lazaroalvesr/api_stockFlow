@@ -27,7 +27,7 @@ model Usuario {
 
 model Pasta {
   id         String   @id @default(uuid())
-  nome       String   @unique
+  nome       String   
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt()
   user       Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)

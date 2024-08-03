@@ -14,11 +14,11 @@ export class FolderController {
         return this.folderService.create(folder)
     }
 
-    @Get("getAll")
-    getAll() {
-        return this.folderService.buscarTodas()
+    @Get('getAll/:userId')
+    getAll(@Param('userId') userId: string) {
+        return this.folderService.buscarTodas(userId);
     }
-
+    
     @Get(":id")
     getById(@Param("id") id: string) {
         return this.folderService.buscarPorID(id)
