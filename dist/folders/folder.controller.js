@@ -25,8 +25,8 @@ let FolderController = class FolderController {
     create(folder) {
         return this.folderService.create(folder);
     }
-    getAll(id) {
-        return this.folderService.buscarTodas(id);
+    getAll() {
+        return this.folderService.buscarTodas();
     }
     getById(id) {
         return this.folderService.buscarPorID(id);
@@ -48,15 +48,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], FolderController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)('all/:id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)("getAll"),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], FolderController.prototype, "getAll", null);
 __decorate([
-    (0, common_1.Get)('details/:id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)

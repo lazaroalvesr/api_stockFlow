@@ -25,8 +25,8 @@ let TaskService = class TaskService {
                 nome: task.nome,
                 text: task.text,
                 perecivel: task.perecivel,
-                dataValidade: task.dataValidade,
-                dataFabricacao: task.dataFabricacao,
+                dataValidade: task.dataValidade ? new Date(task.dataValidade) : null,
+                dataFabricacao: task.dataFabricacao ? new Date(task.dataFabricacao) : null,
                 pastaId: task.pastaId,
             },
         });

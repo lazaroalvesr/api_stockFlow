@@ -11,11 +11,7 @@ export declare class FolderController {
         updated_at: Date;
         usuarioId: string;
     }>;
-    getAll(id: string): Promise<{
-        itemCount: number;
-        _count: {
-            Tarefa: number;
-        };
+    getAll(): Promise<{
         id: string;
         nome: string;
         created_at: Date;
