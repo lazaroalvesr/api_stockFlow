@@ -15,11 +15,11 @@ export class TasksDTO {
     pastaId: string
 
     @IsDate()
-    dataValidade: Date;
+    dataValidade: string;
     
     @IsOptional()
     @IsDate()
-    dataFabricacao?: Date;
+    dataFabricacao?: string;
 
     @IsNotEmpty()
     @IsString()
