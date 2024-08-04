@@ -42,8 +42,8 @@ model Tarefa {
   nome           String
   text           String
   perecivel      Boolean
-  dataValidade   String
-  dataFabricacao String?
+  dataValidade   DateTime?
+  dataFabricacao DateTime?
   created_at     DateTime  @default(now())
   updated_at     DateTime  @updatedAt()
   pasta          Pasta     @relation(fields: [pastaId], references: [id], onDelete: Cascade)
