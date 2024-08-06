@@ -61,6 +61,7 @@ export class TaskService {
             where: { id },
             data: {
                 nome: task.nome,
+                text: task.text,
                 perecivel: task.perecivel,
                 dataValidade: task.dataValidade,
                 dataFabricacao: task.dataFabricacao,
