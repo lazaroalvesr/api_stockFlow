@@ -75,7 +75,7 @@ DELETE /folders/:id: Deleta uma pasta.
 📦 Itens
 GET /folders/:folderId/items: Lista todos os itens de uma pasta.
 POST /folders/:folderId/items: Cria um novo item dentro de uma pasta.
-DELETE /folders/:folderId/items/:itemId: Deleta um item de uma pasta.
+DELETE /folders/:folderId/items/:itemId: Deleta um item de uma pasta
 🔐 Autenticação
 A API utiliza JWT para autenticação. Após o login, você deve incluir o token JWT no cabeçalho das requisições para acessar as rotas protegidas.
 
