@@ -1,6 +1,6 @@
 # 📦 StockFlow API
 
-![Logo ou Banner do Projeto](link_para_imagem) <!-- Se você tiver um logo ou banner -->
+![Logo ou Banner do Projeto](https://stock-flow-front.vercel.app/icon/Icone.svg) <!-- Se você tiver um logo ou banner -->
 
 ## 📑 Índice
 1. [📖 Visão Geral](#-visão-geral)
