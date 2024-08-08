@@ -49,8 +49,7 @@ Antes de iniciar a aplicação, você precisa configurar as variáveis de ambien
 
 Crie um arquivo .env na raiz do projeto e adicione as seguintes variáveis:
 ````
-env
-Copy code
+# env
 DATABASE_URL=postgresql://usuario:senha@localhost:5432/nome_do_banco
 JWT_SECRET=sua_chave_secreta
 ````
@@ -58,12 +57,12 @@ JWT_SECRET=sua_chave_secreta
 Após configurar as variáveis de ambiente, você pode iniciar a aplicação.
 
 ```bash
-Copy code
 # Rodando as migrações do Prisma
 npx prisma migrate dev
-```
+
 # Iniciar a aplicação
 npm run start:dev
+```
 📚 Rotas da API
 Aqui estão as principais rotas da API:
 
