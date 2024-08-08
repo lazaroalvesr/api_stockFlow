@@ -42,24 +42,26 @@ cd StockFlow
 
 # Instale as dependências
 npm install
+```
 
 🔧 Configuração
 Antes de iniciar a aplicação, você precisa configurar as variáveis de ambiente.
 
 Crie um arquivo .env na raiz do projeto e adicione as seguintes variáveis:
-
+````
 env
 Copy code
 DATABASE_URL=postgresql://usuario:senha@localhost:5432/nome_do_banco
 JWT_SECRET=sua_chave_secreta
+````
 🚀 Uso
 Após configurar as variáveis de ambiente, você pode iniciar a aplicação.
 
-bash
+```bash
 Copy code
 # Rodando as migrações do Prisma
 npx prisma migrate dev
-
+```
 # Iniciar a aplicação
 npm run start:dev
 📚 Rotas da API
@@ -79,7 +81,8 @@ DELETE /folders/:folderId/items/:itemId: Deleta um item de uma pasta.
 A API utiliza JWT para autenticação. Após o login, você deve incluir o token JWT no cabeçalho das requisições para acessar as rotas protegidas.
 
 Exemplo de cabeçalho de requisição:
-
+```
 http
 Copy code
 Authorization: Bearer seu_token_jwt
+```
