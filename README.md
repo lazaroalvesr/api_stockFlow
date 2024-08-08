@@ -80,8 +80,6 @@ DELETE /folders/:folderId/items/:itemId: Deleta um item de uma pasta.
 A API utiliza JWT para autenticação. Após o login, você deve incluir o token JWT no cabeçalho das requisições para acessar as rotas protegidas.
 
 Exemplo de cabeçalho de requisição:
-```
-http
-Copy code
+```http
 Authorization: Bearer seu_token_jwt
 ```
