@@ -40,7 +40,7 @@ export class AuthController {
     }
 
     @Delete(":id")
-    delete(@Param("id") id: string) {
+    deleteUser(@Param("id") id: string) {
         return this.authService.delete(id)
     }
 }
