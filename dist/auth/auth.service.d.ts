@@ -36,12 +36,14 @@ export declare class AuthService {
         };
     }[]>;
     updateUser(id: string, userUpdate: UpdateUserDTO): Promise<{
-        id: string;
-        nome: string;
-        email: string;
-        senha: string;
-        created_at: Date;
-        updated_at: Date;
+        user: {
+            id: string;
+            nome: string;
+            email: string;
+            created_at: Date;
+            updated_at: Date;
+        };
+        acess_token: string;
     }>;
     getById(id: string): Promise<{
         id: string;

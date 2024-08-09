@@ -90,7 +90,10 @@ let AuthService = class AuthService {
                 where: { id },
                 data: userUpdate
             });
-            return update;
+            const { senha: _, ...userSemSenha } = update;
+            const payload = { ...userSemSenha };
+            const acess_token = await this.jwtService.signAsync(payload);
+            return { user: payload, acess_token: acess_token };
         }
         catch (e) {
             console.log('erro ao atualizar infos do user');

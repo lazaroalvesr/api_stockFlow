@@ -96,8 +96,13 @@ export class AuthService {
                 where: { id },
                 data: userUpdate
             })
+            const { senha: _, ...userSemSenha } = update;
 
-            return update
+            const payload = { ...userSemSenha };
+
+            const acess_token = await this.jwtService.signAsync(payload);
+            
+            return { user: payload, acess_token: acess_token };
         } catch (e) {
             console.log('erro ao atualizar infos do user')
             throw new InternalServerErrorException("Erro ao atualizar infos do user")

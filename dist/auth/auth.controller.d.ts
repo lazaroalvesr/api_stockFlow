@@ -35,12 +35,14 @@ export declare class AuthController {
         };
     }[]>;
     UpdateUser(id: string, userUpdated: UpdateUserDTO): Promise<{
-        id: string;
-        nome: string;
-        email: string;
-        senha: string;
-        created_at: Date;
-        updated_at: Date;
+        user: {
+            id: string;
+            nome: string;
+            email: string;
+            created_at: Date;
+            updated_at: Date;
+        };
+        acess_token: string;
     }>;
     getUserById(id: string): Promise<{
         id: string;
