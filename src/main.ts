@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: "https://stock-flow-front.vercel.app",
+    origin: "http://localhost:3000/",
     methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
     credentials: true
   });
