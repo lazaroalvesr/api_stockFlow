@@ -39,7 +39,7 @@ let AuthController = class AuthController {
     getUserById(id) {
         return this.authService.getById(id);
     }
-    delete(id) {
+    deleteUser(id) {
         return this.authService.delete(id);
     }
 };
@@ -89,7 +89,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], AuthController.prototype, "delete", null);
+], AuthController.prototype, "deleteUser", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])

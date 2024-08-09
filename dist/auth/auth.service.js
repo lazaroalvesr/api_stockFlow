@@ -123,9 +123,21 @@ let AuthService = class AuthService {
         }
     }
     async delete(id) {
-        return this.prismaService.usuario.delete({
-            where: { id }
-        });
+        try {
+            const user = await this.prismaService.usuario.findUnique({
+                where: { id }
+            });
+            if (!user) {
+                throw new Error('User not found');
+            }
+            return await this.prismaService.usuario.delete({
+                where: { id }
+            });
+        }
+        catch (error) {
+            console.error('Error deleting user:', error.message);
+            throw new Error('Failed to delete user');
+        }
     }
 };
 exports.AuthService = AuthService;

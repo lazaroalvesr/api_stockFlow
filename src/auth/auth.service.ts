@@ -101,7 +101,7 @@ export class AuthService {
             const payload = { ...userSemSenha };
 
             const acess_token = await this.jwtService.signAsync(payload);
-            
+
             return { user: payload, acess_token: acess_token };
         } catch (e) {
             console.log('erro ao atualizar infos do user')
@@ -137,8 +137,22 @@ export class AuthService {
     }
 
     async delete(id: string) {
-        return this.prismaService.usuario.delete({
-            where: { id }
-        })
+        try {
+            const user = await this.prismaService.usuario.findUnique({
+                where: { id }
+            });
+
+            if (!user) {
+                throw new Error('User not found');
+            }
+
+            return await this.prismaService.usuario.delete({
+                where: { id }
+            });
+        } catch (error) {
+            console.error('Error deleting user:', error.message);
+            throw new Error('Failed to delete user');
+        }
     }
+
 }

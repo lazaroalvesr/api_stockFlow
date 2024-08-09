@@ -51,7 +51,7 @@ export declare class AuthController {
         created_at: Date;
         updated_at: Date;
     }>;
-    delete(id: string): Promise<{
+    deleteUser(id: string): Promise<{
         id: string;
         nome: string;
         email: string;
