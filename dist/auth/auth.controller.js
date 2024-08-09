@@ -19,6 +19,7 @@ const Register_1 = require("../dto/Register");
 const Login_1 = require("../dto/Login");
 const jwt_auth_guard_1 = require("./jwt-auth.guard");
 const public_decorator_1 = require("../lib/public.decorator");
+const UpdateUser_1 = require("../dto/UpdateUser");
 let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
@@ -31,6 +32,9 @@ let AuthController = class AuthController {
     }
     getAllUser() {
         return this.authService.getAll();
+    }
+    UpdateUser(id, userUpdated) {
+        return this.authService.updateUser(id, userUpdated);
     }
     getUserById(id) {
         return this.authService.getById(id);
@@ -63,6 +67,15 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "getAllUser", null);
+__decorate([
+    (0, common_1.Put)("update/:id"),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    __param(0, (0, common_1.Param)("id")),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, UpdateUser_1.UpdateUserDTO]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "UpdateUser", null);
 __decorate([
     (0, common_1.Get)(":id"),
     __param(0, (0, common_1.Param)("id")),

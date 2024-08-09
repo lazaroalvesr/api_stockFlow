@@ -3,7 +3,7 @@ export declare class TasksDTO {
     text: string;
     perecivel: boolean;
     pastaId: string;
-    dataValidade: Date;
-    dataFabricacao?: Date;
+    dataValidade: string;
+    dataFabricacao?: string;
     usuarioId: string;
 }

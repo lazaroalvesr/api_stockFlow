@@ -3,6 +3,7 @@ import { PrismaService } from '../db/prisma.service';
 import { Login, Register } from '../lib/interface';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { UpdateUserDTO } from '../dto/UpdateUser';
 
 @Injectable()
 export class AuthService {
@@ -86,6 +87,20 @@ export class AuthService {
         } catch (error) {
             console.error('Erro ao buscar todos os usuários:', error);
             throw new InternalServerErrorException('Erro ao buscar todos os usuários');
+        }
+    }
+
+    async updateUser(id: string, userUpdate: UpdateUserDTO) {
+        try {
+            const update = await this.prismaService.usuario.update({
+                where: { id },
+                data: userUpdate
+            })
+
+            return update
+        } catch (e) {
+            console.log('erro ao atualizar infos do user')
+            throw new InternalServerErrorException("Erro ao atualizar infos do user")
         }
     }
 

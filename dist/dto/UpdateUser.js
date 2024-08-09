@@ -9,40 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TasksDTO = void 0;
+exports.UpdateUserDTO = void 0;
 const class_validator_1 = require("class-validator");
-class TasksDTO {
+class UpdateUserDTO {
 }
-exports.TasksDTO = TasksDTO;
-__decorate([
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], TasksDTO.prototype, "nome", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], TasksDTO.prototype, "text", void 0);
-__decorate([
-    (0, class_validator_1.IsBoolean)(),
-    __metadata("design:type", Boolean)
-], TasksDTO.prototype, "perecivel", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], TasksDTO.prototype, "pastaId", void 0);
-__decorate([
-    (0, class_validator_1.IsDate)(),
-    __metadata("design:type", String)
-], TasksDTO.prototype, "dataValidade", void 0);
+exports.UpdateUserDTO = UpdateUserDTO;
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsDate)(),
-    __metadata("design:type", String)
-], TasksDTO.prototype, "dataFabricacao", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], TasksDTO.prototype, "usuarioId", void 0);
-//# sourceMappingURL=Tasks.js.map
+], UpdateUserDTO.prototype, "nome", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateUserDTO.prototype, "email", void 0);
+//# sourceMappingURL=UpdateUser.js.map

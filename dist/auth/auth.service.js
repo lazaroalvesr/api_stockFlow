@@ -84,6 +84,19 @@ let AuthService = class AuthService {
             throw new common_1.InternalServerErrorException('Erro ao buscar todos os usuários');
         }
     }
+    async updateUser(id, userUpdate) {
+        try {
+            const update = await this.prismaService.usuario.update({
+                where: { id },
+                data: userUpdate
+            });
+            return update;
+        }
+        catch (e) {
+            console.log('erro ao atualizar infos do user');
+            throw new common_1.InternalServerErrorException("Erro ao atualizar infos do user");
+        }
+    }
     async getById(id) {
         try {
             if (!id) {

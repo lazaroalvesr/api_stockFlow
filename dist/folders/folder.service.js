@@ -18,14 +18,6 @@ let FolderService = class FolderService {
     }
     async create({ nome, usuarioId }) {
         try {
-            const nomeExistingue = await this.prismaService.pasta.findUnique({
-                where: {
-                    nome
-                }
-            });
-            if (nomeExistingue) {
-                throw new common_1.BadRequestException("Erro ao criar pasta: Nome já em uso!");
-            }
             const createFolder = await this.prismaService.pasta.create({
                 data: {
                     nome,

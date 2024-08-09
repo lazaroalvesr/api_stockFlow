@@ -1,6 +1,7 @@
 import { PrismaService } from '../db/prisma.service';
 import { Login, Register } from '../lib/interface';
 import { JwtService } from '@nestjs/jwt';
+import { UpdateUserDTO } from '../dto/UpdateUser';
 export declare class AuthService {
     private jwtService;
     private readonly prismaService;
@@ -34,6 +35,14 @@ export declare class AuthService {
             updated_at: Date;
         };
     }[]>;
+    updateUser(id: string, userUpdate: UpdateUserDTO): Promise<{
+        id: string;
+        nome: string;
+        email: string;
+        senha: string;
+        created_at: Date;
+        updated_at: Date;
+    }>;
     getById(id: string): Promise<{
         id: string;
         nome: string;
