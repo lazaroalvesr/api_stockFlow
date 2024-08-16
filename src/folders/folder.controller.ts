@@ -18,7 +18,7 @@ export class FolderController {
     getAll(@Param('userId') userId: string) {
         return this.folderService.buscarTodas(userId);
     }
-    
+
     @Get(":id")
     getById(@Param("id") id: string) {
         return this.folderService.buscarPorID(id)

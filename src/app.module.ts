@@ -5,7 +5,6 @@ import { TaskModule } from './tasks/task.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { ConfigModule } from '@nestjs/config';
-import Joi from 'joi';
 
 @Module({
   imports: [AuthModule, FolderModule, TaskModule, ConfigModule.forRoot()],
